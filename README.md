@@ -23,6 +23,10 @@ CREATE TABLE `user` (
   CONSTRAINT UNIQUE `unique_email` (`email`)
 );
 
+INSERT INTO `user` (`username`, `email`, `password`) VALUES
+('nandhakumar', 'nandhakumar@yopmail.com',    'nandha12345'),
+('navayuvan', 'navayuvan@yopmail.com',    'nava12345');
+
 DROP TABLE IF EXISTS `profile`;
 CREATE TABLE `profile` (
   `user_id` int NOT NULL PRIMARY KEY,
@@ -30,4 +34,10 @@ CREATE TABLE `profile` (
   `lastname` varchar(255) NOT NULL,
   CONSTRAINT FOREIGN KEY `fk_profile_user_id` (`user_id`) REFERENCES `user` (`id`) ON UPDATE CASCADE ON DELETE CASCADE
 );
+
+INSERT INTO `profile` (`user_id`, `firstname`, `lastname`) VALUES
+(1, 'Nandha', 'Kumar'),
+(2, 'Nava', 'Yuvan');
+
+
 ```
