@@ -4,6 +4,7 @@ import com.untitled.blog.model.User;
 import com.untitled.blog.repository.UserRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -39,6 +40,6 @@ public class UserService {
     }
 
     public List<User> list(){
-        return repository.findAll();
+        return repository.findAll(Sort.by(Sort.Direction.DESC,"id"));
     }
 }
