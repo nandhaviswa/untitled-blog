@@ -22,4 +22,12 @@ CREATE TABLE `user` (
   CONSTRAINT UNIQUE `unique_username` (`username`),
   CONSTRAINT UNIQUE `unique_email` (`email`)
 );
+
+DROP TABLE IF EXISTS `profile`;
+CREATE TABLE `profile` (
+  `user_id` int NOT NULL PRIMARY KEY,
+  `firstname` varchar(255) NOT NULL,
+  `lastname` varchar(255) NOT NULL,
+  CONSTRAINT FOREIGN KEY `fk_profile_user_id` (`user_id`) REFERENCES `user` (`id`) ON UPDATE CASCADE ON DELETE CASCADE
+);
 ```
